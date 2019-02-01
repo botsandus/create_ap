@@ -1677,7 +1677,7 @@ elif [[ $NO_DNSMASQ -eq 0 ]]; then
         DHCP_DNS="$GATEWAY"
     fi
     cat << EOF > $CONFDIR/dnsmasq.conf
-listen-address=${GATEWAY}
+listen-address=${GATEWAY},172.16.0.1
 ${DNSMASQ_BIND}
 dhcp-range=${GATEWAY%.*}.1,${GATEWAY%.*}.254,255.255.255.0,24h
 dhcp-option-force=option:router,${GATEWAY}
